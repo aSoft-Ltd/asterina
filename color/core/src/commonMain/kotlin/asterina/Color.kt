@@ -4,7 +4,7 @@ package asterina
 import kotlin.js.JsExport
 
 @Suppress("NON_EXPORTABLE_TYPE")
-interface Color {
+sealed interface Color {
     val alpha: Alpha
 
     val asHsl get() = this as? HslColor

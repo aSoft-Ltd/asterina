@@ -2,7 +2,7 @@ package asterina
 
 import asterina.internal.HslColorImpl
 
-fun hsl(hue: Int, saturation: Int, lightness: Int, alphaPct: Int) = hsla(hue, saturation, lightness, 100)
+fun hsl(hue: Int, saturation: Int, lightness: Int) = hsla(hue, saturation, lightness, 100)
 
 fun hsla(hue: Int, saturation: Int, lightness: Int, alphaPct: Int): HslColor {
     val h = clamp(hue).between(0..<360)
