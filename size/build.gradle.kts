@@ -1,9 +1,4 @@
-import org.jetbrains.compose.compose
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-import org.jetbrains.kotlin.gradle.dsl.KotlinJsCompile
-
 plugins {
-    id("org.jetbrains.compose")
     kotlin("multiplatform")
     id("tz.co.asoft.library")
 }
@@ -23,8 +18,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.asterinaColorCompose)
-                api(projects.asterinaSize)
+
             }
         }
 
@@ -34,11 +28,4 @@ kotlin {
             }
         }
     }
-}
-
-compose {
-    kotlinCompilerPlugin.set(kotlinz.versions.compose.compiler)
-    kotlinCompilerPluginArgs.add(kotlinz.versions.kotlin.map {
-        "suppressKotlinVersionCompatibilityCheck=$it"
-    })
 }

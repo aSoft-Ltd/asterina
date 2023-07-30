@@ -24,6 +24,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(projects.asterinaColorCompose)
+                api(projects.asterinaBase)
                 api(projects.asterinaSize)
             }
         }
