@@ -1,5 +1,6 @@
 package asterina
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,8 +35,8 @@ fun Welcome(
         Box(modifier = Modifier.weight(0.8f).debug()) {
             Heading3("test2")
         }
-        Box(modifier = Modifier.weight(0.1f).debug()) {
-            Heading3("test3")
+        Box(modifier = Modifier.weight(0.1f).debug().clickable { onGetStartedClicked() }) {
+            Heading3("Get Started")
         }
     }
 }
