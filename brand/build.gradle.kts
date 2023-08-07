@@ -24,6 +24,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(projects.asterinaText)
+                api(souza.icons.awesome.font)
+                api(souza.icons.awesome.line)
             }
         }
 

@@ -1,14 +1,17 @@
 package asterina
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.style.TextAlign
+import compose.icons.FontAwesomeIcons
+import compose.icons.fontawesomeicons.Regular
+import compose.icons.fontawesomeicons.regular.Compass
 
 @Composable
 fun Welcome(
@@ -30,12 +33,16 @@ fun Welcome(
             text = text,
             size = Size.XXLarge,
             align = TextAlign.Center,
-            modifier = Modifier.weight(0.1f).debug()
+            modifier = Modifier.weight(0.25f).debug()
         )
-        Box(modifier = Modifier.weight(0.8f).debug()) {
+        Box(modifier = Modifier.weight(0.5f).debug()) {
+            val vector = rememberVectorPainter(
+                image = FontAwesomeIcons.Regular.Compass,
+            )
+            Icon(vector, color = PrimaryPaletteProvider.current.c100, "Test Icon")
             Heading3("test2")
         }
-        Box(modifier = Modifier.weight(0.1f).debug().clickable { onGetStartedClicked() }) {
+        Box(modifier = Modifier.weight(0.25f).debug().clickable { onGetStartedClicked() }) {
             Heading3("Get Started")
         }
     }
