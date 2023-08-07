@@ -11,6 +11,7 @@ import asterina.Mode
 import asterina.Palette10
 import asterina.Size
 import asterina.SizeEvaluator
+import asterina.debug
 import asterina.transformers.toComposeColor
 
 @Composable
