@@ -25,8 +25,3 @@ internal fun HeadingX(
 ) {
     BasicText(text, modifier, style = TextStyle(color = color.toComposeColor(), fontSize = evaluator.evaluate(size), textAlign = align))
 }
-
-internal fun defaultHeadingAColor(mode: Mode, palette: Palette10) = when (mode) {
-    Mode.Light -> palette.c900
-    Mode.Dark -> palette.c100
-}

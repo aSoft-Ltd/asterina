@@ -21,25 +21,24 @@ import compose.icons.fontawesomeicons.regular.Compass
 @Composable
 fun Welcome(
     text: String = "Welcome",
-    onGetStartedClicked: () -> Unit
-) = Surface(
-    modifier = Modifier.fillMaxSize(),
-    color = if (ModeProvider.current is Mode.Light) {
-        PrimaryPaletteProvider.current.c100
-    } else {
-        PrimaryPaletteProvider.current.c900
+    color: ColorPair<Color> = when (ModeProvider.current) {
+        Mode.Light -> ColorPair(
+            background = PrimaryPaletteProvider.current.c100,
+            foreground = PrimaryPaletteProvider.current.c900
+        )
+
+        Mode.Dark -> ColorPair(
+            background = PrimaryPaletteProvider.current.c900,
+            foreground = PrimaryPaletteProvider.current.c100,
+        )
     },
-) {
-    val color = if (ModeProvider.current is Mode.Light) {
-        PrimaryPaletteProvider.current.c900
-    } else {
-        PrimaryPaletteProvider.current.c100
-    }
-    val ccolor = color.toComposeColor()
+    onGetStartedClicked: () -> Unit
+) = Surface(color, Modifier.fillMaxSize()) {
+    val fcolor = color.foreground.toComposeColor()
     val radius = 40f
     Canvas(modifier = Modifier.fillMaxSize()) {
-        drawCircle(ccolor, radius = size.minDimension / 7, center = Offset(-0.04f * size.width, 0.2f * size.height))
-        drawRoundRect(ccolor, topLeft = Offset(0.0f, 0.9f * size.height), cornerRadius = CornerRadius(radius, radius), size = size.copy(height = 0.4f * size.height))
+        drawCircle(fcolor, radius = size.minDimension / 7, center = Offset(-0.04f * size.width, 0.2f * size.height))
+        drawRoundRect(fcolor, topLeft = Offset(0.0f, 0.9f * size.height), cornerRadius = CornerRadius(radius, radius), size = size.copy(height = 0.4f * size.height))
     }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,17 +55,13 @@ fun Welcome(
             val vector = rememberVectorPainter(
                 image = FontAwesomeIcons.Regular.Compass,
             )
-            Icon(vector, color = color, "Test Icon")
+            Icon(vector, color = color.foreground, "Test Icon")
         }
         Spacer(Modifier.weight(0.2f))
         Box(modifier = Modifier.weight(0.1f).clickable { onGetStartedClicked() }) {
             Heading1(
                 text = "Get Started",
-                color = if (ModeProvider.current is Mode.Light) {
-                    PrimaryPaletteProvider.current.c100
-                } else {
-                    PrimaryPaletteProvider.current.c900
-                }
+                color = color.background
             )
         }
     }

@@ -7,8 +7,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import asterina.internal.HeadingX
-import asterina.internal.defaultHeadingAColor
-
 
 internal val Heading3TextSizeCompute: SizeEvaluator<TextUnit> = MinMaxSizeEvaluator(7.sp, 14.sp, 28.sp)
 
@@ -17,7 +15,7 @@ val Heading3TextSizeProvider = compositionLocalOf { Heading3TextSizeCompute }
 @Composable
 fun Heading3(
     text: String,
-    color: Color = defaultHeadingAColor(ModeProvider.current, PrimaryPaletteProvider.current),
+    color: Color = ColorProvider.current.foreground,
     size: Size = Size.Medium,
     align: TextAlign? = null,
     modifier: Modifier = Modifier

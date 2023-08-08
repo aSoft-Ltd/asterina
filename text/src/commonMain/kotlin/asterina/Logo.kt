@@ -10,14 +10,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import asterina.internal.defaultHeadingAColor
 import asterina.transformers.toComposeColor
 
 @Composable
 fun Logo(
     char: Char,
     size: Size = Size.XXXLarge,
-    color: Color = defaultHeadingAColor(ModeProvider.current, PrimaryPaletteProvider.current),
+    color: Color = ColorProvider.current.foreground,
 ) = Column {
     val style = TextStyle(
         color = color.toComposeColor(),
@@ -28,6 +27,6 @@ fun Logo(
             trim = LineHeightStyle.Trim.Both
         )
     )
-    BasicText(text = char.toString(),style = style)
+    BasicText(text = char.toString(), style = style)
     Spacer(modifier = Modifier.height(50.dp))
 }
