@@ -23,14 +23,14 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.asterinaColorCompose)
+                api(libs.asterina.color.compose)
                 api(projects.asterinaSize)
             }
         }
 
         val commonTest by getting {
             dependencies {
-                implementation(projects.kommanderCore)
+                implementation(libs.kommander.core)
             }
         }
     }
