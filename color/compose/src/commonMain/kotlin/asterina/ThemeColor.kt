@@ -12,16 +12,8 @@ import androidx.compose.ui.unit.dp
 import asterina.transformers.toComposeColor
 
 @Composable
-fun ThemeColorSelector(palette: Palette10) = Column(modifier = Modifier.width(250.dp)) {
-    Swatch(color = palette.c100)
-    Swatch(color = palette.c200)
-    Swatch(color = palette.c300)
-    Swatch(color = palette.c400)
-    Swatch(color = palette.c500)
-    Swatch(color = palette.c600)
-    Swatch(color = palette.c700)
-    Swatch(color = palette.c800)
-    Swatch(color = palette.c900)
+fun ThemeColorSelector(palette: Palette) = Column(modifier = Modifier.width(250.dp)) {
+    for (i in 1..9) Swatch(palette[i * 100])
 }
 
 

@@ -8,15 +8,15 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import asterina.internal.HeadingX
 
-internal val Heading3TextSizeCompute: SizeEvaluator<TextUnit> = MinMaxSizeEvaluator(7.sp, 14.sp, 28.sp)
+internal val Heading3TextSizeEvaluator: SizeEvaluator<TextUnit> = MinMaxSizeEvaluator(7.sp, 14.sp, 28.sp)
 
-val Heading3TextSizeProvider = compositionLocalOf { Heading3TextSizeCompute }
+val Heading3TextSizeEvaluatorLocal = compositionLocalOf { Heading3TextSizeEvaluator }
 
 @Composable
 fun Heading3(
     text: String,
-    color: Color = ColorProvider.current.foreground,
+    color: Color = ColorLocal.current.foreground,
     size: Size = Size.Medium,
     align: TextAlign? = null,
     modifier: Modifier = Modifier
-) = HeadingX(text = text, color = color, size = size, align = align, evaluator = Heading3TextSizeProvider.current, modifier = modifier)
+) = HeadingX(text = text, color = color, size = size, align = align, evaluator = Heading3TextSizeEvaluatorLocal.current, modifier = modifier)

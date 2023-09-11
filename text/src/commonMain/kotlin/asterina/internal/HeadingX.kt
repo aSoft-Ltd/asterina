@@ -7,11 +7,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import asterina.Color
-import asterina.Mode
-import asterina.Palette10
 import asterina.Size
 import asterina.SizeEvaluator
-import asterina.debug
 import asterina.transformers.toComposeColor
 
 @Composable

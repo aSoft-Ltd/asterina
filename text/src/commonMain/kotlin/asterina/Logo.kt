@@ -16,12 +16,12 @@ import asterina.transformers.toComposeColor
 fun Logo(
     char: Char,
     size: Size = Size.XXXLarge,
-    color: Color = ColorProvider.current.foreground,
+    color: Color = ColorLocal.current.foreground,
 ) = Column {
     val style = TextStyle(
         color = color.toComposeColor(),
         textAlign = TextAlign.Center,
-        fontSize = Heading1TextSizeProvider.current.evaluate(size) * 6,
+        fontSize = Heading1TextSizeEvaluatorLocal.current.evaluate(size) * 6,
         lineHeightStyle = LineHeightStyle(
             alignment = LineHeightStyle.Alignment.Bottom,
             trim = LineHeightStyle.Trim.Both

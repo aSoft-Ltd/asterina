@@ -20,15 +20,15 @@ import kotlin.time.Duration.Companion.seconds
 fun Splash(
     logo: Char,
     label: String,
-    color: ColorPair<Color> = when (ModeProvider.current) {
+    color: ColorPair = when (ModeLocal.current) {
         Mode.Light -> ColorPair(
-            background = PrimaryPaletteProvider.current.c100,
-            foreground = PrimaryPaletteProvider.current.c900
+            background = PrimaryPaletteLocal.current[100],
+            foreground = PrimaryPaletteLocal.current[900]
         )
 
         Mode.Dark -> ColorPair(
-            background = PrimaryPaletteProvider.current.c900,
-            foreground = PrimaryPaletteProvider.current.c100,
+            background = PrimaryPaletteLocal.current[900],
+            foreground = PrimaryPaletteLocal.current[100],
         )
     },
     timeout: Duration = 3.seconds,

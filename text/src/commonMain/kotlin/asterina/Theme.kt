@@ -9,18 +9,18 @@ import androidx.compose.ui.unit.TextUnit
 
 @Composable
 fun Theme(
-    primary: Palette10 = palette10High(240),
+    primary: Palette = palette09High(240),
     mode: Mode = Mode.Light,
-    heading1: SizeEvaluator<TextUnit> = Heading1TextSizeCompute,
-    heading2: SizeEvaluator<TextUnit> = Heading2TextSizeCompute,
-    heading3: SizeEvaluator<TextUnit> = Heading3TextSizeCompute,
+    heading1: SizeEvaluator<TextUnit> = Heading1TextSizeEvaluator,
+    heading2: SizeEvaluator<TextUnit> = Heading2TextSizeEvaluator,
+    heading3: SizeEvaluator<TextUnit> = Heading3TextSizeEvaluator,
     content: @Composable BoxScope.() -> Unit
 ) = CompositionLocalProvider(
-    PrimaryPaletteProvider provides primary,
-    ModeProvider provides mode,
-    Heading1TextSizeProvider provides heading1,
-    Heading2TextSizeProvider provides heading2,
-    Heading3TextSizeProvider provides heading3,
+    PrimaryPaletteLocal provides primary,
+    ModeLocal provides mode,
+    Heading1TextSizeEvaluatorLocal provides heading1,
+    Heading2TextSizeEvaluatorLocal provides heading2,
+    Heading3TextSizeEvaluatorLocal provides heading3,
 ) {
     Surface(modifier = Modifier.fillMaxSize(), content = content)
 }
